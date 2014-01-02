@@ -81,6 +81,11 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill1/type
     write /sys/class/rfkill/rfkill0/state 0
 
+    chown system /sys/devices/system/cpu/cpu1/online
+    chown system /sys/devices/system/cpu/cpu2/online
+    chown system /sys/devices/system/cpu/cpu3/online
+    chown system /sys/kernel/debug/tegra_emc/eack_state
+
 # FactoryTest AT command
     chmod 0664 /sys/devices/platform/bd_address/bdaddr_if
     chown radio bluetooth /sys/devices/platform/bd_address/bdaddr_if
@@ -90,6 +95,14 @@ on boot
     chmod 0220 /proc/bluetooth/sleep/btwrite
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/lpm
     chown bluetooth net_bt_stack /proc/bluetooth/sleep/btwrite
+
+# GPS
+    setprop ro.gps.supl.supported true
+
+# NFC
+    setprop ro.nfc.port "I2C"
+    chmod 0660 /dev/pn544
+    chown nfc nfc /dev/pn544
 
 # backlight
     chown system radio /sys/class/leds/lcd-backlight/brightness
@@ -129,10 +142,7 @@ on boot
 # power
     chown system system /sys/kernel/tegra_cap/core_cap_level
     chown system system /sys/kernel/tegra_cap/core_cap_state
-    chown system system /sys/module/cpu_tegra/parameters/cpu_user_cap
-    chown system system /sys/module/cpu_tegra/parameters/force_disable_edp
-    chown system system /sys/module/cpu_tegra/parameters/force_policy_max
-    chown system system /sys/module/cpu_tegra/parameters/is_enable_boost_load_shaper
+    chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
 
 # sangwon.jeon for gyro and accel.
