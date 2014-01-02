@@ -81,9 +81,6 @@ on boot
     chown bluetooth bluetooth /sys/class/rfkill/rfkill1/type
     write /sys/class/rfkill/rfkill0/state 0
 
-    chown system /sys/devices/system/cpu/cpu1/online
-    chown system /sys/devices/system/cpu/cpu2/online
-    chown system /sys/devices/system/cpu/cpu3/online
     chown system /sys/kernel/debug/tegra_emc/eack_state
 
 # FactoryTest AT command
