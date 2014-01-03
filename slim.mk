@@ -1,45 +1,30 @@
-#
-# Copyright (C) 2013 The OmniROM Project
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
+## Specify phone tech before including full_phone
+$(call inherit-product, vendor/cm/config/gsm.mk)
 
-# Get the prebuilt list of APNs
-$(call inherit-product, vendor/slim/config/common_full_phone.mk)
-
-# Inherit from the common AOSP product configuration
-$(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
-
-# Bootanimation
+# Boot animation
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
-# Inherit from our custom product configuration
-$(call inherit-product, vendor/slim/config/common.mk)
+# Release name
+PRODUCT_RELEASE_NAME := p880
+
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/slim/config/common_full_phone.mk)
+
+# This device has NFC
+$(call inherit-product, vendor/slim/config/nfc_enhanced.mk)
 
 # Inherit device configuration
 $(call inherit-product, device/lge/p880/p880.mk)
 
-# Release name and versioning
-PRODUCT_RELEASE_NAME := Optimus 4X HD
-#PRODUCT_VERSION_DEVICE_SPECIFIC :=
-
-# Device identifier. This must come after all inclusions
+## Device identifier. This must come after all inclusions
+PRODUCT_RELEASE_NAME := Optimus4X
 PRODUCT_DEVICE := p880
 PRODUCT_NAME := slim_p880
-PRODUCT_BRAND := LG
-PRODUCT_MODEL := LG-P880
+PRODUCT_BRAND := lge
 PRODUCT_MANUFACTURER := LGE
 
+PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=x3_open_eu BUILD_FINGERPRINT=lge/x3_open_eu/x3:4.1.2/JZO54K/P88020a.1e56bb4c69:user/release-keys PRIVATE_BUILD_DESC="x3_open_eu-user 4.1.2 JZO54K P88020a.1e56bb4c69 release-keys"
 
-$(call inherit-product, vendor/lge/p880/p880-vendor.mk)
+# Enable Torch
+PRODUCT_PACKAGES += Torch
