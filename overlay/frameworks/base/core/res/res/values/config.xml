@@ -171,14 +171,10 @@
         <item>255</item>
     </integer-array>
 
-    <integer name="config_deviceHardwareKeys">7</integer>
-
     <bool name="config_enableLockScreenTranslucentDecor">true</bool>
 
     <!-- If this is true, the screen will fade off. -->
     <bool name="config_animateScreenLights">false</bool>
-
-    <bool name="config_enableTorch">true</bool>
 
     <!-- Indicate whether the SD card is accessible without removing the battery. -->
     <bool name="config_batterySdCardAccessibility">true</bool>
