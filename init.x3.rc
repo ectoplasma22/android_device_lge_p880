@@ -139,6 +139,10 @@ on boot
 # power
     chown system system /sys/kernel/tegra_cap/core_cap_level
     chown system system /sys/kernel/tegra_cap/core_cap_state
+    chown system system /sys/module/cpu_tegra/parameters/cpu_user_cap
+    chown system system /sys/module/cpu_tegra/parameters/force_disable_edp
+    chown system system /sys/module/cpu_tegra/parameters/force_policy_max
+    chown system system /sys/module/cpu_tegra/parameters/is_enable_boost_load_shaper
     chown system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
 
 
